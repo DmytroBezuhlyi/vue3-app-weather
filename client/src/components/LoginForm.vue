@@ -3,11 +3,11 @@
     <n-form-item label="Email" :feedback="emailError" class="login-form__item">
       <n-input v-model:value="email" placeholder="Email" class="login-form__input" />
     </n-form-item>
-    <n-form-item label="Пароль" :feedback="passwordError" class="login-form__item">
+    <n-form-item label="Password" :feedback="passwordError" class="login-form__item">
       <n-input
         type="password"
         v-model:value="password"
-        placeholder="Пароль"
+        placeholder="Password"
         class="login-form__input"
       />
     </n-form-item>
