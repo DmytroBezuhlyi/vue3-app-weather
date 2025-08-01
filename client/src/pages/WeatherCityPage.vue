@@ -9,7 +9,7 @@
         class="weather-city-page__table"
       />
       <n-spin v-else class="weather-city-page__spin" size="large">
-        <template #description>Загрузка погоды...</template>
+        <template #description>Forecast loading...</template>
       </n-spin>
     </div>
   </div>
