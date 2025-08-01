@@ -55,7 +55,7 @@ defineProps<{
     text-align: center;
 
     @media (max-width: 900px) {
-      width: auto;
+      min-width: 420px;
       font-size: 15px;
     }
 
