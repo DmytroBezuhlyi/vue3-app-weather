@@ -50,19 +50,16 @@ defineProps<{
   }
 
   &__table {
-    min-width: 650px;
-    max-width: 100%;
     width: 100%;
     table-layout: fixed;
     text-align: center;
 
     @media (max-width: 900px) {
-      min-width: 560px;
+      width: auto;
       font-size: 15px;
     }
 
     @media (max-width: 600px) {
-      min-width: 420px;
       font-size: 13px;
     }
   }

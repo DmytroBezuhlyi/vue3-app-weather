@@ -1,6 +1,6 @@
 <template>
   <n-layout-header class="weather-header">
-    <div class="weather-header__container">
+    <div class="weather-header__container container">
       <template v-if="isMobile">
         <div class="weather-header__mobile-scroll">
           <button
@@ -22,11 +22,11 @@
           :value="currentCountry"
           mode="horizontal"
           @update:value="goToCountry"
-          class="weather-header__menu"
+          class="weather-header__menu container"
         />
       </template>
       <n-button type="error" class="weather-header__logout-btn" @click="logout" ghost>
-        Выйти
+        Logout
       </n-button>
     </div>
   </n-layout-header>
@@ -92,7 +92,7 @@ function logout() {
       flex-direction: column;
       align-items: stretch;
       gap: 5px;
-      padding: 5px 2px 2px 2px;
+      padding: 12px 16px;
       min-height: unset;
     }
   }
@@ -129,10 +129,10 @@ function logout() {
     margin-right: 8px;
     scrollbar-width: thin;
     scrollbar-color: #ccc #f7f7f7;
+    padding: 4px 0 8px;
 
     @media (max-width: 600px) {
-      margin-bottom: 3px;
-      padding-bottom: 2px;
+      margin-bottom: 4px;
     }
   }
 

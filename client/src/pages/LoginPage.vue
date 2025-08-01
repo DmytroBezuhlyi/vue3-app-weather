@@ -19,9 +19,7 @@ import LoginForm from '@/components/LoginForm.vue'
 
   &__content {
     width: 100%;
-    max-width: 430px;
     margin: 0 auto;
-    padding: 36px 14px 28px 14px;
     display: flex;
     flex-direction: column;
     align-items: center;

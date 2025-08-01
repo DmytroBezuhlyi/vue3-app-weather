@@ -13,7 +13,6 @@ import WeatherHeader from '@/components/WeatherHeader.vue'
 
 <style lang="scss" scoped>
 .weather-page {
-  min-height: 60vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -27,12 +26,11 @@ import WeatherHeader from '@/components/WeatherHeader.vue'
     justify-content: center;
     align-items: center;
     flex: 1 1 auto;
-    min-height: 260px;
+    height: calc(100vh - 120px);
     padding-top: 24px;
 
     @media (max-width: 700px) {
       padding-top: 14px;
-      min-height: 140px;
     }
   }
 

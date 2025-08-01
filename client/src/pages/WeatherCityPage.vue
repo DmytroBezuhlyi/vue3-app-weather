@@ -1,7 +1,7 @@
 <template>
   <div class="weather-city-page">
     <weather-header class="weather-city-page__header" />
-    <div class="weather-city-page__content">
+    <div class="weather-city-page__content container">
       <weather-table
         v-if="!loading && days.length"
         :days="days"
@@ -56,7 +56,7 @@ watch(
 
 <style lang="scss" scoped>
 .weather-city-page {
-  min-height: 65vh;
+  //min-height: 65vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -72,12 +72,12 @@ watch(
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    min-height: 320px;
+    //min-height: 320px;
 
     @media (max-width: 900px) {
       max-width: 100vw;
       padding: 18px 3vw 6px 3vw;
-      min-height: 160px;
+      //min-height: 160px;
     }
   }
 

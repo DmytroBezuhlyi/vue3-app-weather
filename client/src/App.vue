@@ -1,32 +1,24 @@
 <template>
   <div class="app">
-    <div class="app__container">
-      <router-view />
-    </div>
+    <router-view />
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .app {
   min-height: 100vh;
   background: #f9fbfd;
   background: linear-gradient(132deg, #f2f8fd 40%, #e1ebf8 100%);
-
-  &__container {
-    max-width: 1100px;
-    width: 100%;
-    margin: 0 auto;
-    min-height: 100vh;
-    box-sizing: border-box;
-
-    @media (max-width: 900px) {
-      .app__container {
-        max-width: 100vw;
-      }
-    }
-  }
 }
 
+.container {
+  max-width: 1232px;
+  margin: 0 auto;
+  padding: 0 16px;
+
+  @media (max-width: 600px) {
+    padding: 0;
+  }
+}
 </style>
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>

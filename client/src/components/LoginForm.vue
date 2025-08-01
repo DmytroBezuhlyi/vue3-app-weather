@@ -73,25 +73,19 @@ const onSubmit = async () => {
 
 <style lang="scss" scoped>
 .login-form {
-  width: 100%;
-  max-width: 380px;
+  width: calc(100% - 32px);
+  max-width: 375px;
   margin: 0 auto;
-  padding: 40px 32px 32px 32px;
+  padding: 20px 16px;
   box-shadow: 0 2px 24px 0 #cfd8dc44;
   border-radius: 16px;
   background: #fff;
   display: flex;
   flex-direction: column;
 
-  @media (max-width: 600px) {
-    padding: 20px 6vw 20px 6vw;
-    box-shadow: 0 1px 8px 0 #cfd8dc44;
-    border-radius: 12px;
-    gap: 10px;
-  }
-
   @media (max-width: 420px) {
-    width: auto;
+    border-radius: 0;
+    max-width: unset;
   }
 
   &__error {
