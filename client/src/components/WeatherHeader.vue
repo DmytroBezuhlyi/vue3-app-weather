@@ -8,7 +8,7 @@
             :key="option.key"
             :class="[
               'weather-header__mobile-item',
-              { 'weather-header__mobile-item--active': option.key === current },
+              { 'weather-header__mobile-item--active': option.key === currentCountry },
             ]"
             @click="goToCountry(option.key)"
           >
@@ -19,7 +19,7 @@
       <template v-else>
         <n-menu
           :options="menuOptions"
-          :value="current"
+          :value="currentCountry"
           mode="horizontal"
           @update:value="goToCountry"
           class="weather-header__menu"
