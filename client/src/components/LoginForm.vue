@@ -12,7 +12,7 @@
       />
     </n-form-item>
     <n-button type="primary" attr-type="submit" block :loading="loading" class="login-form__button">
-      Войти
+      Login
     </n-button>
     <div v-if="submitError" class="login-form__error">
       {{ submitError }}
@@ -82,7 +82,6 @@ const onSubmit = async () => {
   background: #fff;
   display: flex;
   flex-direction: column;
-  gap: 18px;
 
   @media (max-width: 600px) {
     padding: 20px 6vw 20px 6vw;
@@ -93,30 +92,6 @@ const onSubmit = async () => {
 
   @media (max-width: 420px) {
     width: auto;
-  }
-
-  &__item {
-    margin-bottom: 0;
-  }
-
-  &__input {
-    font-size: 18px;
-    min-height: 44px;
-
-    @media (max-width: 600px) {
-      font-size: 15px;
-      min-height: 38px;
-    }
-  }
-
-  &__button {
-    margin-top: 6px;
-    font-size: 17px;
-    border-radius: 8px;
-
-    @media (max-width: 600px) {
-      font-size: 15px;
-    }
   }
 
   &__error {
