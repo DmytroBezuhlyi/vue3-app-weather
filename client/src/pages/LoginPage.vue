@@ -12,7 +12,7 @@ import LoginForm from '@/components/LoginForm.vue'
 
 <style lang="scss" scoped>
 .login-page {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;

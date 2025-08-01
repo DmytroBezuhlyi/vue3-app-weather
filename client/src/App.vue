@@ -6,7 +6,7 @@
 
 <style lang="scss">
 .app {
-  min-height: 100vh;
+  height: 100vh;
   background: #f9fbfd;
   background: linear-gradient(132deg, #f2f8fd 40%, #e1ebf8 100%);
 }
