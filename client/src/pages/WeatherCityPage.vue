@@ -1,9 +1,8 @@
 <template>
   <div class="weather-city-page">
-    <weather-header class="weather-city-page__header" />
     <div class="weather-city-page__content container">
       <weather-table
-        v-if="!loading && days.length"
+        v-if="!loading && tableData.length"
         :days="days"
         :data="tableData"
         class="weather-city-page__table"
@@ -19,20 +18,17 @@
 import { ref, onMounted, watch, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useWeatherStore } from '@/stores/weather'
-import WeatherHeader from '../components/WeatherHeader.vue'
 import WeatherTable from '../components/WeatherTable.vue'
+import { useHelpers } from '@/helpers/useHelpers.ts'
 
 const route = useRoute()
 const weatherStore = useWeatherStore()
+const { days } = useHelpers()
 
 const loading = ref(true)
 
-const days = computed(() => {
-  const country = route.params.country as string
-  return weatherStore.weatherByCountry[country]?.days || []
-})
 const tableData = computed(() => {
-  const country = route.params.country as string
+  const country = route.query.country as string
   return weatherStore.weatherByCountry[country]?.data || []
 })
 
@@ -40,14 +36,14 @@ onMounted(loadCurrentWeather)
 
 function loadCurrentWeather() {
   loading.value = true
-  const country = route.params.country as string
+  const country = route.query.country as string
   weatherStore.getWeatherByCountry(country).finally(() => {
     loading.value = false
   })
 }
 
 watch(
-  () => route.params.country,
+  () => route.query.country,
   () => {
     loadCurrentWeather()
   },

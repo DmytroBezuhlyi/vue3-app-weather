@@ -1,15 +1,10 @@
 <template>
   <div class="weather-page">
-    <weather-header class="weather-page__header" />
     <div class="weather-page__content">
       <div class="weather-page__welcome">Select the country to see the forecast</div>
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import WeatherHeader from '@/components/WeatherHeader.vue'
-</script>
 
 <style lang="scss" scoped>
 .weather-page {

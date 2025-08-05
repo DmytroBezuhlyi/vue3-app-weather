@@ -46,7 +46,7 @@ const authStore = useAuthStore()
 const isMobile = ref(window.innerWidth <= 600)
 
 const menuOptions = computed(() => weatherStore.countries.map((c) => ({ label: c, key: c })))
-const currentCountry = computed(() => route.params.country || '')
+const currentCountry = computed(() => route.query.country || '')
 
 onMounted(() => {
   weatherStore.getCountries()
@@ -56,14 +56,12 @@ onUnmounted(() => window.removeEventListener('resize', handleResize))
 
 function goToCountry(country: string) {
   if (country && country !== currentCountry.value) {
-    router.push(`/weather/${country}`)
+    router.push({ path: '/weather-city', query: { country: country } })
   }
 }
-
 const handleResize = () => {
   isMobile.value = window.innerWidth <= 600
 }
-
 function logout() {
   authStore.logout()
   router.push('/login')

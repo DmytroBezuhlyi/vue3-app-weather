@@ -39,7 +39,6 @@ const submitError = ref('')
 function validateEmail(val: string) {
   return /\S+@\S+\.\S+/.test(val)
 }
-
 const onSubmit = async () => {
   emailError.value = ''
   passwordError.value = ''

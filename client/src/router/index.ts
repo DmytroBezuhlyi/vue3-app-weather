@@ -1,49 +1,70 @@
-import { createRouter, createWebHistory } from "vue-router";
-import { useAuthStore } from "@/stores/auth.ts";
-import LoginPage from "@/pages/LoginPage.vue";
-import WeatherPage from "@/pages/WeatherPage.vue";
-import WeatherCityPage from "@/pages/WeatherCityPage.vue";
+import AppLayout from '@/layouts/AppLayout.vue'
+import AuthLayout from '@/layouts/AuthLayout.vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import { useAuthStore } from '@/stores/auth.ts'
+import LoginPage from '@/pages/LoginPage.vue'
+import WeatherPage from '@/pages/WeatherPage.vue'
+import WeatherCityPage from '@/pages/WeatherCityPage.vue'
 
 const routes = [
   {
-    path: "/login",
-    name: "login",
-    component: LoginPage,
+    path: '/',
+    component: AuthLayout,
+    children: [
+      { path: '', redirect: '/login' },
+      {
+        path: '/login',
+        name: 'Login',
+        component: LoginPage,
+      },
+    ],
   },
   {
-    path: "/weather",
-    name: "weather",
-    component: WeatherPage,
+    path: '/',
+    component: AppLayout,
     meta: {
       requiresAuth: true,
     },
+    children: [
+      {
+        path: '/weather',
+        name: 'weather',
+        component: WeatherPage,
+        meta: {
+          requiresAuth: true,
+        },
+      },
+      {
+        path: '/weather-city',
+        name: 'weather-city',
+        component: WeatherCityPage,
+        meta: {
+          requiresAuth: true,
+        },
+      },
+    ],
   },
+
   {
-    path: "/weather/:country",
-    name: "weather-city",
-    component: WeatherCityPage,
-    meta: {
-      requiresAuth: true,
-    },
+    path: '/:pathMatch(.*)*',
+    redirect: '/login',
   },
-  {
-    path: "/:pathMatch(.*)*",
-    redirect: "/login",
-  },
-];
+]
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
-});
+})
 
 router.beforeEach((to, from, next) => {
-  const authStore = useAuthStore();
+  const authStore = useAuthStore()
   if (to.meta.requiresAuth && !authStore.checkToken()) {
-    next("/login");
+    next('/login')
+  } else if (!to.meta.requiresAuth && authStore.checkToken() && to.path === '/login') {
+    next('/weather')
   } else {
-    next();
+    next()
   }
-});
+})
 
-export default router;
+export default router
